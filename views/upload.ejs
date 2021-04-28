@@ -2,12 +2,12 @@
 <html>
 
 <head>
-  <% include ./layout/header %>
+  <%- include('./layout/header') %>
   <link rel="stylesheet" href="/stylesheets/post.css" />
 </head>
 
 <body>
-  <% include ./layout/navbar %>
+  <%- include('./layout/navbar')%>
   <div style="padding-top: 100px" class="container">
     <form action="/posts" method="POST" id="identifier" enctype="multipart/form-data">
       <input name="title" id="title" />

@@ -2,12 +2,12 @@
 <html>
 
 <head>
-  <% include ./layout/header %>
+  <%- include('./layout/header') %>
   <link rel='stylesheet' href='/stylesheets/auth.css' />
 </head>
 
 <body>
-  <% include ./layout/navbar %>
+  <%- include('./layout/navbar') %>
   <div class="wrap">
     <div class="login_wrap">
       <form action="/auth/login" method="POST">

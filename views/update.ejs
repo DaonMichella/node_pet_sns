@@ -2,12 +2,12 @@
 <html>
 
 <head>
-  <% include ./layout/header %>
+  <%- include('./layout/header') %>
   <link rel="stylesheet" href="/stylesheets/post.css" />
 </head>
 
 <body>
-  <% include ./layout/navbar %>
+  <%- include('./layout/navbar')%>
   <div style="padding-top: 100px" class="container">
     <form action="/posts/update/<%= post._id %>" method="POST" id="identifier">
       <input name="title" value="<%= post.title %>" id="title" />

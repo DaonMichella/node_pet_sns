@@ -2,13 +2,13 @@
 <html>
 
 <head>
-  <% include ./layout/header %>
+  <%- include('./layout/header') %>
   <link rel="stylesheet" href="/stylesheets/detail.css" />
 
 </head>
 
 <body>
-  <% include ./layout/navbar %>
+  <%- include('./layout/navbar')%>
   <div style="padding-top:150px;" class=" container">
     <div class="detail_title"><%= post.title %></div>
     <div class="detail_info">
