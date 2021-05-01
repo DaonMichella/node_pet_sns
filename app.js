@@ -3,8 +3,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
-var indexRouter = require("./routes");
+var indexRouter = require("./routes/index");
+const jwtMiddleware = require("./module/jwtMiddleware");
 
 var app = express();
 
@@ -18,11 +18,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-
+app.use(jwtMiddleware);
 app.use("/", indexRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
+});
+app.io = require("socket.io")();
+
+app.io.on("connection", (socket) => {
+  socket.on("chat-msg", (user, msg) => {
+    app.io.emit("chat-msg", user, msg);
+  });
 });
 
 // error handler

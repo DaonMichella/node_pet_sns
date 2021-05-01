@@ -7,6 +7,7 @@
  var app = require("../app");
  var debug = require("debug")("node_pet_sns:server");
  var http = require("http");
+ const dbConfig = require("../config/dbConfig.json");
 
 /**
  * Get port from environment and store in Express.
@@ -19,7 +20,7 @@
  });
  
 mongoose.connect(
-  `mongodb+srv://ldj2797:${dbConfig.pw}@first-project.v1xdu.mongodb.net/${dbConfig.name}?retryWrites=true&w=majority`,
+  `mongodb+srv://root:${dbConfig.pw}@cluster0.ursdo.mongodb.net/${dbConfig.name}?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
 );
  
